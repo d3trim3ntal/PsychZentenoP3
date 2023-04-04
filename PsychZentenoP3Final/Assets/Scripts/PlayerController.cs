@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 10.0f;
+    private float speed = 5.0f;
     private float zBound = 24;
     private Rigidbody playerRb;
     
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = <GetComponent>Rigidbody>();
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -34,12 +34,12 @@ public class PlayerController : MonoBehaviour
     // Prevent the player from leaving the top or bottom of the screen
     void ConstrainPlayerPosition()
     {
-        if (transform.position.z < zBound)
+        if (transform.position.z < -zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
         }
 
-        if (transform.position = > zBound)
+        if (transform.position.z > zBound)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
